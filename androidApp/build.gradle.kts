@@ -61,7 +61,7 @@ dependencies {
         implementation(ui)
         implementation(uiGraphics)
         debugImplementation(uiTooling)
-        debugImplementation(uiToolingPreview)
+        implementation(uiToolingPreview)
         implementation(foundation)
         implementation(material)
         implementation(navigation)

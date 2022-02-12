@@ -10,6 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.navigationBarsHeight
 import com.google.accompanist.insets.statusBarsPadding
 import xyz.stylianosgakis.pawfinder.Greeting
@@ -29,4 +30,10 @@ fun MainScreen() {
             Spacer(Modifier.navigationBarsHeight())
         }
     }
+}
+
+@Preview
+@Composable
+fun MainScreenPreview() {
+    MainScreen()
 }
