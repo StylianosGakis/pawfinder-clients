@@ -2,13 +2,20 @@ object Versions {
     const val kotlinVersion = "1.6.10"
     const val kotlinCoroutines = "1.6.0"
 
+    const val accompanist = "0.24.2-alpha"
     const val compose = "1.2.0-alpha03"
     const val composeCompiler = "1.2.0-alpha03"
-    const val navCompose = "2.4.1"
-    const val accompanist = "0.24.2-alpha"
-
     const val composeDesktopWeb = "1.0.1"
+
+    const val kotlinReact = "17.0.2-pre.298-kotlin-1.6.10"
+    const val kotlinReactDom = "17.0.2-pre.298-kotlin-1.6.10"
+    const val kotlinReactRouterDom = "6.2.1-pre.298-kotlin-1.6.10"
+    const val kotlinStyledNext = "1.1.0-pre.298-kotlin-1.6.10"
+    const val kotlinxHtmlJs = "0.7.3"
+
     const val kmpNativeCoroutines = "0.11.1-new-mm"
+
+    const val navCompose = "2.4.1"
 
     const val junit = "4.13.2"
 }
@@ -46,6 +53,20 @@ object Google {
     }
 }
 
+object Kotlinx {
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
+    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
+
+    const val htmlJs = "org.jetbrains.kotlinx:kotlinx-html-js:${Versions.kotlinxHtmlJs}"
+}
+
+object React {
+    const val dom = "org.jetbrains.kotlin-wrappers:kotlin-react-dom:${Versions.kotlinReactDom}"
+    const val react = "org.jetbrains.kotlin-wrappers:kotlin-react:${Versions.kotlinReact}"
+    const val routerDom = "org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:${Versions.kotlinReactRouterDom}"
+    const val styledNext = "org.jetbrains.kotlin-wrappers:kotlin-styled-next:${Versions.kotlinStyledNext}"
+}
+
 object Test {
     const val junit = "junit:junit:${Versions.junit}"
     const val composeUiTest = "androidx.compose.ui:ui-test:${Versions.compose}"
@@ -55,9 +76,4 @@ object Test {
 
 object Touchlab {
     const val kermit = "co.touchlab:kermit:1.0.3"
-}
-
-object Kotlinx {
-    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
-    const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
 }

@@ -13,7 +13,7 @@ kotlin {
     val iosX64 = iosX64()
     val iosArm64 = iosArm64()
     val iosSimulatorArm64 = iosSimulatorArm64()
-    js {
+    js(IR) {
         browser()
         nodejs()
     }
