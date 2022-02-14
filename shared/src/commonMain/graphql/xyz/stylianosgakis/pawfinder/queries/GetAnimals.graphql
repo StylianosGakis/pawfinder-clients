@@ -1,0 +1,71 @@
+query GetAnimals(
+    $animalType: AnimalType!,
+    $limit: LimitInput!,
+    $page: Int!,
+) {
+    animals(
+        animalType: $animalType,
+        limit: $limit,
+        page: $page,
+    ) {
+        age
+        attributes {
+            declawed
+            houseTrained
+            shotsCurrent
+            spayedNeutered
+            specialNeeds
+        }
+        breeds {
+            mixed
+            primary
+            secondary
+            unknown
+        }
+        contact {
+            address
+            city
+            country
+            email
+            phone
+            postcode
+            state
+        }
+        description
+        gender
+        id
+        links {
+            organization {
+                href
+            }
+            self {
+                href
+            }
+            type {
+                href
+            }
+        }
+        name
+        organizationAnimalId
+        organizationId
+        photos {
+            full
+            large
+            medium
+            small
+        }
+        primaryPhotoCropped {
+            full
+            large
+            medium
+            small
+        }
+        publishedAt
+        size
+        species
+        status
+        statusChangedAt
+        type
+        url
+    }
+}
