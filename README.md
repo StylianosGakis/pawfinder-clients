@@ -1,6 +1,9 @@
 ## A repository to play around with KMP
 
-### Current implementations include:
+Consumes data coming from this [GraphQL wrapper](https://github.com/StylianosGakis/pawfinder-graphql) of
+the [PetFinder API](https://www.petfinder.com/developers/)
+
+#### Current implementations include:
 
 |                 🤖 Android                 |                 🍎 iOS                 |              🖥 Desktop with compose               |              🕸 Web with react               |
 |:------------------------------------------:|:--------------------------------------:|:--------------------------------------------------:|:--------------------------------------------:|
