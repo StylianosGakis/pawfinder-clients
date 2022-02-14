@@ -70,6 +70,9 @@ dependencies {
         implementation(insets)
         implementation(systemUiController)
     }
+    with(Koin) {
+        implementation(android)
+    }
     with(Test) {
         testImplementation(junit)
         testImplementation(composeUiTest)
