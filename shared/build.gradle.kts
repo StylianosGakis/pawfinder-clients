@@ -1,13 +1,15 @@
 @file:Suppress("UNUSED_VARIABLE")
 
 import com.apollographql.apollo3.gradle.internal.ApolloDownloadSchemaTask
+import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 import org.jetbrains.kotlin.konan.properties.Properties
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("com.apollographql.apollo3").version(Versions.apolloGraphql)
+    id("com.apollographql.apollo3")
+    id("com.codingfeline.buildkonfig")
 }
 
 kotlin {
@@ -126,11 +128,19 @@ apollo {
     }
 }
 
-tasks.register("downloadSchema", ApolloDownloadSchemaTask::class.java) {
-    val properties = Properties().apply {
-        load(rootProject.file("local.properties").inputStream())
+val properties = Properties().apply {
+    load(rootProject.file("local.properties").inputStream())
+}
+val backendGraphQlEndpoint: String = properties.getProperty("backendGraphQlEndpoint")
+
+buildkonfig {
+    packageName = "xyz.stylianosgakis.pawfinder"
+    defaultConfigs {
+        buildConfigField(STRING, "backendGraphQlEndpoint", backendGraphQlEndpoint)
     }
-    val endpointUrl = properties.getProperty("endpoint_url")
-    endpoint.set(endpointUrl)
+}
+
+tasks.register("downloadSchema", ApolloDownloadSchemaTask::class.java) {
+    endpoint.set(backendGraphQlEndpoint)
     schema.set("shared/src/commonMain/graphql/xyz/stylianosgakis/pawfinder/schema.graphqls")
 }
