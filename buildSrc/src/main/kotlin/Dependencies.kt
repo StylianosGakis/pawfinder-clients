@@ -8,9 +8,9 @@ object Versions {
     const val composeDesktopWeb = "1.0.1"
 
     const val kotlinReact = "17.0.2-pre.298-kotlin-1.6.10"
+    const val kotlinReactCss = "17.0.2-pre.288-kotlin-1.6.10"
     const val kotlinReactDom = "17.0.2-pre.298-kotlin-1.6.10"
-    const val kotlinReactRouterDom = "6.2.1-pre.298-kotlin-1.6.10"
-    const val kotlinStyledNext = "1.1.0-pre.298-kotlin-1.6.10"
+    const val kotlinReactRouter = "6.2.1-pre.298-kotlin-1.6.10"
     const val kotlinxHtmlJs = "0.7.3"
 
     const val kmpNativeCoroutines = "0.11.1-new-mm"
@@ -61,10 +61,10 @@ object Kotlinx {
 }
 
 object React {
-    const val dom = "org.jetbrains.kotlin-wrappers:kotlin-react-dom:${Versions.kotlinReactDom}"
     const val react = "org.jetbrains.kotlin-wrappers:kotlin-react:${Versions.kotlinReact}"
-    const val routerDom = "org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:${Versions.kotlinReactRouterDom}"
-    const val styledNext = "org.jetbrains.kotlin-wrappers:kotlin-styled-next:${Versions.kotlinStyledNext}"
+    const val reactCss = "org.jetbrains.kotlin-wrappers:kotlin-react-css:${Versions.kotlinReactCss}"
+    const val reactDom = "org.jetbrains.kotlin-wrappers:kotlin-react-dom:${Versions.kotlinReactDom}"
+    const val reactRouter = "org.jetbrains.kotlin-wrappers:kotlin-react-router-dom:${Versions.kotlinReactRouter}"
 }
 
 object Test {

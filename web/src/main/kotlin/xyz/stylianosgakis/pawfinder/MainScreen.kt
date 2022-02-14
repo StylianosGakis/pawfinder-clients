@@ -1,30 +1,28 @@
 package xyz.stylianosgakis.pawfinder
 
-import kotlinx.css.Color
-import kotlinx.css.ListStyleType
-import kotlinx.css.backgroundColor
-import kotlinx.css.listStyleType
-import kotlinx.css.margin
-import kotlinx.css.px
-import kotlinx.css.width
+import csstype.Color
+import csstype.Length
+import csstype.ListStyleType
+import csstype.px
+import react.FC
 import react.Props
-import react.dom.li
-import react.fc
-import styled.StyleSheet
-import styled.css
-import styled.styledDiv
-import styled.styledUl
+import react.css.css
+import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.li
+import react.dom.html.ReactHTML.ul
 
 external interface MainScreenProps : Props {
     var greeting: String
 }
 
-val MainScreen = fc<MainScreenProps> { props ->
-    styledDiv {
+val MainScreen = FC<MainScreenProps> { props ->
+    div {
         css {
-            +ComponentStyles.mainContent
+            backgroundColor = Color("#f0f0f0")
+            width = 600.px
+            margin = Length.auto
         }
-        styledUl {
+        ul {
             css {
                 listStyleType = ListStyleType.none
             }
@@ -34,13 +32,5 @@ val MainScreen = fc<MainScreenProps> { props ->
                 }
             }
         }
-    }
-}
-
-object ComponentStyles : StyleSheet(name = "ComponentStyles", isStatic = true) {
-    val mainContent by css {
-        backgroundColor = Color("#f0f0f0")
-        width = 600.px
-        margin = "auto"
     }
 }

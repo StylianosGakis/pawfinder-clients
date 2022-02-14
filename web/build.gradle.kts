@@ -23,12 +23,11 @@ dependencies {
 
     implementation(kotlin("stdlib-js"))
 
-    implementation(Kotlinx.htmlJs)
     with(React) {
-        implementation(dom)
         implementation(react)
-        implementation(routerDom)
-        implementation(styledNext)
+        implementation(reactCss)
+        implementation(reactDom)
+        implementation(reactRouter)
     }
 
     // Material Design Components for React
