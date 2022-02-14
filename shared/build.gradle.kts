@@ -1,10 +1,13 @@
 @file:Suppress("UNUSED_VARIABLE")
 
+import com.apollographql.apollo3.gradle.internal.ApolloDownloadSchemaTask
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.konan.properties.Properties
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("com.apollographql.apollo3").version(Versions.apolloGraphql)
 }
 
 kotlin {
@@ -18,7 +21,6 @@ kotlin {
         nodejs()
     }
 
-    // Configure all compilations of all targets:
     targets.all {
         compilations.all {
             kotlinOptions {
@@ -31,6 +33,9 @@ kotlin {
         // region Common
         val commonMain by getting {
             dependencies {
+                implementation(ApolloGraphql.runtime)
+                api(Arrow.core)
+                implementation(Koin.core)
                 implementation(Kotlinx.coroutinesCore)
                 implementation(Touchlab.kermit)
             }
@@ -112,4 +117,20 @@ android {
         minSdk = AndroidSdk.min
         targetSdk = AndroidSdk.target
     }
+}
+
+apollo {
+    service("pawFinder") {
+        packageName.set("xyz.stylianosgakis.pawfinder")
+        codegenModels.set("responseBased")
+    }
+}
+
+tasks.register("downloadSchema", ApolloDownloadSchemaTask::class.java) {
+    val properties = Properties().apply {
+        load(rootProject.file("local.properties").inputStream())
+    }
+    val endpointUrl = properties.getProperty("endpoint_url")
+    endpoint.set(endpointUrl)
+    schema.set("shared/src/commonMain/graphql/xyz/stylianosgakis/pawfinder/schema.graphqls")
 }

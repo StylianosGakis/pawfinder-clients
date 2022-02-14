@@ -1,0 +1,146 @@
+type Animal {
+  age: String!
+
+  attributes: Attributes!
+
+  breeds: Breeds!
+
+  contact: Contact!
+
+  description: String
+
+  gender: String!
+
+  """
+  The ID of the animal
+  """
+  id: String!
+
+  links: Links!
+
+  name: String!
+
+  organizationAnimalId: String
+
+  organizationId: String!
+
+  photos: [Photo!]!
+
+  primaryPhotoCropped: PrimaryPhotoCropped
+
+  publishedAt: String!
+
+  size: String!
+
+  species: String!
+
+  status: String!
+
+  statusChangedAt: String!
+
+  type: String!
+
+  url: String!
+}
+
+enum AnimalType {
+  DOG
+
+  CAT
+
+  RABBIT
+
+  SMALL
+
+  HORSE
+
+  BIRD
+
+  SCALES
+
+  BARNYARD
+}
+
+type Attributes {
+  declawed: Boolean
+
+  houseTrained: Boolean!
+
+  shotsCurrent: Boolean!
+
+  spayedNeutered: Boolean!
+
+  specialNeeds: Boolean!
+}
+
+type Breeds {
+  mixed: Boolean!
+
+  primary: String!
+
+  secondary: String
+
+  unknown: Boolean!
+}
+
+type Contact {
+  address: String
+
+  city: String!
+
+  country: String!
+
+  email: String
+
+  phone: String
+
+  postcode: String
+
+  state: String!
+}
+
+type Href {
+  href: String!
+}
+
+input LimitInput {
+  value: Int!
+}
+
+type Links {
+  organization: Href!
+
+  self: Href!
+
+  type: Href!
+}
+
+type Photo {
+  full: String!
+
+  large: String!
+
+  medium: String!
+
+  small: String!
+}
+
+type PrimaryPhotoCropped {
+  full: String!
+
+  large: String!
+
+  medium: String!
+
+  small: String!
+}
+
+type Query {
+  animal(id: String!): Animal!
+
+  animals(animalType: AnimalType!, limit: LimitInput!, page: Int!): [Animal!]!
+}
+
+schema {
+  query: Query
+}

@@ -3,9 +3,16 @@ object Versions {
     const val kotlinCoroutines = "1.6.0"
 
     const val accompanist = "0.24.2-alpha"
+
+    const val apolloGraphql = "3.1.0"
+
+    const val arrow = "1.0.1"
+
     const val compose = "1.2.0-alpha03"
     const val composeCompiler = "1.2.0-alpha03"
     const val composeDesktopWeb = "1.0.1"
+
+    const val koin = "3.1.5"
 
     const val kotlinReact = "17.0.2-pre.298-kotlin-1.6.10"
     const val kotlinReactCss = "17.0.2-pre.288-kotlin-1.6.10"
@@ -28,6 +35,14 @@ object AndroidSdk {
 
 object Android {
     const val material = "com.google.android.material:material:1.5.0"
+}
+
+object ApolloGraphql {
+    const val runtime = "com.apollographql.apollo3:apollo-runtime:${Versions.apolloGraphql}"
+}
+
+object Arrow {
+    const val core = "io.arrow-kt:arrow-core:${Versions.arrow}"
 }
 
 object Compose {
@@ -53,11 +68,14 @@ object Google {
     }
 }
 
+object Koin {
+    const val core = "io.insert-koin:koin-core:${Versions.koin}"
+    const val android = "io.insert-koin:koin-android:${Versions.koin}"
+}
+
 object Kotlinx {
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlinCoroutines}"
-
-    const val htmlJs = "org.jetbrains.kotlinx:kotlinx-html-js:${Versions.kotlinxHtmlJs}"
 }
 
 object React {
