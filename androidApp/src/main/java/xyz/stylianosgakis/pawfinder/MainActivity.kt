@@ -10,19 +10,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.core.view.WindowCompat
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import xyz.stylianosgakis.pawfinder.animals.AnimalsViewModel
+import xyz.stylianosgakis.pawfinder.animals.MainScreen
 import xyz.stylianosgakis.pawfinder.compose.theme.PawFinderKmpTheme
-import xyz.stylianosgakis.pawfinder.ui.MainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
+        // temp until scoping VM to nav back stack
+        val viewModel = getViewModel<AnimalsViewModel>()
+
         setContent {
             PawFinderKmpTheme {
                 ColorSystemBarsContent {
                     EdgeToEdgeContent {
-                        MainScreen()
+                        MainScreen(viewModel)
                     }
                 }
             }
