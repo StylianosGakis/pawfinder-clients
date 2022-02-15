@@ -13,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.insets.rememberInsetsPaddingValues
 import xyz.stylianosgakis.pawfinder.GetAnimalsQuery
@@ -53,7 +54,11 @@ private fun AnimalListScreen(animals: List<GetAnimalsQuery.Data.Animal>) {
         contentPadding = rememberInsetsPaddingValues(LocalWindowInsets.current.systemBars)
     ) {
         item {
-            Text(text = Greeting().greeting())
+            Text(
+                text = Greeting().greeting(),
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillParentMaxWidth(),
+            )
         }
         itemsIndexed(
             items = animals,
