@@ -9,6 +9,7 @@ buildscript {
         classpath("com.android.tools.build:gradle:${Versions.gradlePlugin}")
         classpath("com.apollographql.apollo3:apollo-gradle-plugin:${Versions.apolloGraphql}")
         classpath("com.codingfeline.buildkonfig:buildkonfig-gradle-plugin:${Versions.buildKonfig}")
+        classpath("com.rickclephas.kmp:kmp-nativecoroutines-gradle-plugin:${Versions.kmpNativeCoroutines}")
     }
 }
 

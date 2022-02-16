@@ -15,6 +15,8 @@ object Versions {
     const val composeCompiler = "1.2.0-alpha03"
     const val composeDesktopWeb = "1.0.1"
 
+    const val kmpNativeCoroutines = "0.11.3"
+
     const val koin = "3.1.5"
 
     const val kotlinReact = "17.0.2-pre.298-kotlin-1.6.10"
@@ -22,8 +24,6 @@ object Versions {
     const val kotlinReactDom = "17.0.2-pre.298-kotlin-1.6.10"
     const val kotlinReactRouter = "6.2.1-pre.298-kotlin-1.6.10"
     const val kotlinxHtmlJs = "0.7.3"
-
-    const val kmpNativeCoroutines = "0.11.1-new-mm"
 
     const val navCompose = "2.4.1"
 

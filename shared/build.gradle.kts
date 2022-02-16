@@ -10,6 +10,7 @@ plugins {
     id("com.android.library")
     id("com.apollographql.apollo3")
     id("com.codingfeline.buildkonfig")
+    id("com.rickclephas.kmp.nativecoroutines")
 }
 
 kotlin {
