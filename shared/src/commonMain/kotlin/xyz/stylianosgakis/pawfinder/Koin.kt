@@ -14,16 +14,16 @@ import xyz.stylianosgakis.pawfinder.backend.GetAnimalsUseCase
 
 fun initKoin(
     extraConfiguration: KoinApplication.() -> Unit = {},
-) {
-    startKoin {
+): KoinApplication {
+    return startKoin {
         extraConfiguration()
         modules(sharedModule)
     }
 }
 
 @Suppress("unused") // Used from Swift
-fun initKoin() {
-    initKoin {}
+fun initKoin(): KoinApplication {
+    return initKoin {}
 }
 
 internal fun <T> Koin.getDependency(clazz: KClass<*>): T {

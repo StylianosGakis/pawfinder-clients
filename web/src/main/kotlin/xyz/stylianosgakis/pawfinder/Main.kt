@@ -14,7 +14,12 @@ fun main() {
 }
 
 private val App = FC<Props> {
-    MainScreen {
-        greeting = Greeting().greeting()
+    val koin = initKoin().koin
+
+    ApplicationModule {
+        this.koin = koin
+        MainScreen {
+            greeting = Greeting().greeting()
+        }
     }
 }
