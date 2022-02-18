@@ -16,7 +16,6 @@ import react.FC
 import react.Props
 import react.css.PropertiesBuilder
 import react.css.css
-import react.dom.html.ReactHTML.body
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h5
 import react.dom.html.ReactHTML.hr
@@ -44,7 +43,6 @@ val MainScreen = FC<MainScreenProps> { props ->
                 getAnimalsUseCase
                     .invoke(AnimalType.CAT, LimitInput(50), 1)
                     .tap {
-                        delay(10_000)
                         animals = it.animals
                     }
             } catch (e: Exception) {
@@ -93,9 +91,7 @@ val MainScreen = FC<MainScreenProps> { props ->
                                     +animal.name
                                 }
                                 animal.description?.let { description ->
-                                    body {
-                                        +description
-                                    }
+                                    +description
                                 }
                             }
                             if (index != animals.lastIndex) {
