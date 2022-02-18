@@ -11,6 +11,7 @@ plugins {
     id("com.apollographql.apollo3")
     id("com.codingfeline.buildkonfig")
     id("com.rickclephas.kmp.nativecoroutines")
+    id("dev.petuska.npm.publish") version "2.1.2"
 }
 
 kotlin {
@@ -22,6 +23,7 @@ kotlin {
     js(IR) {
         browser()
         nodejs()
+        binaries.library()
     }
 
     targets.all {
@@ -33,6 +35,9 @@ kotlin {
     }
 
     sourceSets {
+        all {
+            languageSettings.optIn("kotlin.js.ExperimentalJsExport")
+        }
         // region Common
         val commonMain by getting {
             dependencies {
@@ -122,13 +127,6 @@ android {
     }
 }
 
-apollo {
-    service("pawFinder") {
-        packageName.set("xyz.stylianosgakis.pawfinder")
-        codegenModels.set("responseBased")
-    }
-}
-
 val properties = Properties().apply {
     load(rootProject.file("local.properties").inputStream())
 }
@@ -141,7 +139,27 @@ buildkonfig {
     }
 }
 
+apollo {
+    service("pawFinder") {
+        packageName.set("xyz.stylianosgakis.pawfinder")
+        codegenModels.set("responseBased")
+    }
+}
+
 tasks.register("downloadSchema", ApolloDownloadSchemaTask::class.java) {
     endpoint.set(backendGraphQlEndpoint)
     schema.set("shared/src/commonMain/graphql/xyz/stylianosgakis/pawfinder/schema.graphqls")
+}
+
+npmPublishing {
+    organization = "pawfinder"
+
+    publications {
+        named("js") {
+            version = "0.0.1"
+            packageJson {
+                author { name = "pawfinderName" }
+            }
+        }
+    }
 }

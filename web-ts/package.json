@@ -1,0 +1,24 @@
+{
+  "name": "@pawfinder/ts-consumer",
+  "main": "src/index.ts",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "scripts": {
+    "clean": "rm -rf node_modules/@pawfinder",
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "build:start": "yarn build && node build/index.js",
+    "reinstall:shared-js": "yarn remove @pawfinder/shared-js; yarn add ../shared/build/publications/npm/js",
+    "reinstall": "yarn reinstall:shared-js",
+    "rebuild": "(cd .. && ./gradlew pack) && yarn reinstall",
+    "buildAndStart": "yarn rebuild && yarn start"
+  },
+  "dependencies": {
+    "@pawfinder/shared": "../shared/build/publications/npm/js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.0",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
