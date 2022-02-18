@@ -6,5 +6,5 @@ expect val platform: String
 
 @JsExport
 class Greeting {
-    fun greeting() = "Hello, $platform!"
+    fun greeting() = "Hello, $platform! User uuid number:${randomUUID()}"
 }
