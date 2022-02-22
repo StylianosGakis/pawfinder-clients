@@ -12,10 +12,8 @@ sealed interface ApolloError {
     object NoData : ApolloError
 }
 
-fun <T : Operation.Data, R> ApolloResponse<T>.toEither(
-    transform: (T) -> R,
-): Either<ApolloError, R> {
+fun <T : Operation.Data> ApolloResponse<T>.toEither(): Either<ApolloError, T> {
     if (hasErrors()) return ApolloError.Errors(errors).left()
     val data = data ?: return ApolloError.NoData.left()
-    return transform(data).right()
+    return data.right()
 }

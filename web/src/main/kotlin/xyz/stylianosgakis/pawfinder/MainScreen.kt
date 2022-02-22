@@ -41,7 +41,7 @@ val MainScreen = FC<MainScreenProps> { props ->
         val job = coroutineScope.launch {
             try {
                 getAnimalsUseCase
-                    .invoke(AnimalType.CAT, LimitInput(50), 1)
+                    .invoke(LimitInput(50), 1, AnimalType.CAT)
                     .tap {
                         animals = it.animals
                     }

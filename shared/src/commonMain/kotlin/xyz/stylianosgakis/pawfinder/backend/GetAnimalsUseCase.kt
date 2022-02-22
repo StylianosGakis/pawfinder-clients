@@ -12,14 +12,22 @@ class GetAnimalsUseCase(
     private val apolloClient: ApolloClient,
 ) {
     suspend operator fun invoke(
-        animalType: AnimalType,
         limit: LimitInput,
         page: Int,
+    ): Either<ApolloError, GetAnimalsResponse> {
+        return invoke(limit, page, AnimalType.CAT)
+    }
+
+    suspend operator fun invoke(
+        limit: LimitInput,
+        page: Int,
+        animalType: AnimalType = AnimalType.CAT,
     ): Either<ApolloError, GetAnimalsResponse> {
         return apolloClient
             .query(GetAnimalsQuery(animalType, limit, page))
             .execute()
-            .toEither { dto -> GetAnimalsResponse.fromDto(dto, limit, page) }
+            .toEither()
+            .map { dto -> GetAnimalsResponse.fromDto(dto, limit, page) }
     }
 }
 
